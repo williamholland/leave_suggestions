@@ -36,3 +36,4 @@ Simply run `main.py` with python 2.7
 
 * have a file to configure start and end dates, leave allowance and booked holidays
 * include english or scottish bank holidays with commandline flag
+* unit tests
