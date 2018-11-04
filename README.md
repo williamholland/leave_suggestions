@@ -31,6 +31,18 @@ Simply run `main.py` with python 2.7
     max days between holidays ignoring suggestions: 200
     max days between holidays with suggestions: 31
     days leave not used (with suggestions): 1
+    suggested dates:
+        31/01/2019
+        04/03/2019
+        04/04/2019
+        06/05/2019
+        15/07/2019
+        15/08/2019
+        16/09/2019
+        17/10/2019
+        18/11/2019
+        19/12/2019
+
 
 # To do list
 

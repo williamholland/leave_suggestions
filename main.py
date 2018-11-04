@@ -9,6 +9,8 @@ SUGGEST = 'h'
 
 ALLOWANCE = 25
 
+DATE_FORMAT = '%d/%m/%Y'
+
 
 class Day(object):
     ''' represents a date and stores it's holiday status '''
@@ -30,7 +32,11 @@ class Day(object):
 
     def is_holiday(self, include_suggestions=False):
         ''' is this day a holiday '''
-        return self._value == HOLIDAY or (include_suggestions and self._value == SUGGEST)
+        return self._value == HOLIDAY or (include_suggestions and self.is_suggestion())
+
+    def is_suggestion(self):
+        ''' is this day a holiday '''
+        return self._value == SUGGEST
 
     def is_workday(self):
         ''' is this day a working day? (not holiday or weekend) '''
@@ -132,6 +138,10 @@ class DateArray(object):
         print 'max days between holidays ignoring suggestions:', self.max_days_between_holidays()
         print 'max days between holidays with suggestions:', self.max_days_between_holidays(include_suggestions=True)
         print 'days leave not used (with suggestions):', self.remaining_days
+        print 'suggested dates:'
+        for d in self.dates:
+            if d.is_suggestion():
+                print '\t', d.date.strftime(DATE_FORMAT)
 
 
 if __name__ == '__main__':
