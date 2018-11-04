@@ -69,8 +69,9 @@ class DateArray(object):
         '''
         for date in self.dates:
             if date in date_array:
+                if date.is_workday():
+                    self.remaining_days -= 1
                 date.set_holiday()
-                self.remaining_days -= 1
 
     def max_days_between_holidays(self, include_suggestions=False):
         ''' returns: int
