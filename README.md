@@ -24,32 +24,32 @@ To execute the program simply run `main.py` with python 2.7
         h = suggested holiday
         . = working day
 
-       . . . . S S . . . . . S S . . . . . S S . . . . . S S . . . h 
-             . S S . . . . . S S . . . . . S S . . . . . S S . . . . 
-             . S S h . . . . S S . . . . . S S . . . . . S S . . . . . S S 
-     . . . h . S S . . . . . S S . . . . . S S . . . . . S S . . 
-         . . . S S h . . . . S S . . . . . S S . . . . . S S . . . . . 
+       . . . . S S . . . . . S S . . . . . S S . . . . . S S . . . . 
+             . S S h . . . . S S . . . . . S S . . . . . S S . . . . 
+             . S S . . . . . S S h . . . . S S . . . . . S S . . . . . S S 
+     . . . . . S S . . . . . S S h . . . . S S . . . . . S S . . 
+         . . . S S . . . . . S S . . . . . S S h . . . . S S . . . . . 
                H H H H H H H H H H H H H H S S . . . . . S S . . . . . S S 
-     . . . . . S S . . . . . S S h . . . . S S . . . . . S S . . . 
-           . . S S . . . . . S S . . . h . S S . . . . . S S . . . . . S 
-                 S . . . . . S S . . . . . S S h . . . . S S . . . . . S S . 
-       . . . . S S . . . . . S S . . . h . S S . . . . . S S . . . . 
-             . S S . . . . . S S . . . . . S S h . . . . S S . . . . . S 
-                 S . . . . . S S . . . . . S S . . . h . S S . . . . . S S . . 
-    max days between holidays ignoring suggestions: 200
-    max days between holidays with suggestions: 31
+     . . . . . S S . . . . . S S . . . h . S S . . . . . S S . . . 
+           . . S S . . . . . S S . . . . . S S . . h . . S S . . . . . S 
+                 S . . . . . S S . . . . . S S . . . . . S S . h . . . S S . 
+       . . . . S S . . . . . S S . . . . . S S . . . . . S S h . . . 
+             . S S . . . . . S S . . . . . S S . . . . . S S . . . . . S 
+                 S h . . . . S S . . . . . S S . . . . . S S H H H H H S S . . 
+    max days between holidays ignoring suggestions: 191
+    max days between holidays with suggestions: 34
     days leave not used (with suggestions): 1
     suggested dates:
-        31/01/2019
-        04/03/2019
-        04/04/2019
-        06/05/2019
-        15/07/2019
-        15/08/2019
-        16/09/2019
-        17/10/2019
-        18/11/2019
-        19/12/2019
+         1. 31/12/2019
+         2. 31/12/2019
+         3. 31/12/2019
+         4. 31/12/2019
+         5. 31/12/2019
+         6. 31/12/2019
+         7. 31/12/2019
+         8. 31/12/2019
+         9. 31/12/2019
+
 
 
 # To do list

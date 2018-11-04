@@ -141,9 +141,9 @@ class DateArray(object):
         print 'max days between holidays with suggestions:', self.max_days_between_holidays(include_suggestions=True)
         print 'days leave not used (with suggestions):', self.remaining_days
         print 'suggested dates:'
-        for d in self.dates:
-            if d.is_suggestion():
-                print '\t', d.date.strftime(DATE_FORMAT)
+        suggestions = [ d for d in self.dates if d.is_suggestion() ]
+        for i, s in enumerate(suggestions):
+            print '\t%2s.' % (i+1), d.date.strftime(DATE_FORMAT)
 
 
 def _parse_date_array(config, name):
