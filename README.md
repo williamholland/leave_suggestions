@@ -40,17 +40,15 @@ To execute the program simply run `main.py` with python 2.7
     max days between holidays with suggestions: 34
     days leave not used (with suggestions): 1
     suggested dates:
-         1. 31/12/2019
-         2. 31/12/2019
-         3. 31/12/2019
-         4. 31/12/2019
-         5. 31/12/2019
-         6. 31/12/2019
-         7. 31/12/2019
-         8. 31/12/2019
-         9. 31/12/2019
-
-
+         1. 04/02/2019
+         2. 11/03/2019
+         3. 15/04/2019
+         4. 20/05/2019
+         5. 18/07/2019
+         6. 21/08/2019
+         7. 24/09/2019
+         8. 28/10/2019
+         9. 02/12/2019
 
 # To do list
 

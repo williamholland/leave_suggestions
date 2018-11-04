@@ -143,7 +143,7 @@ class DateArray(object):
         print 'suggested dates:'
         suggestions = [ d for d in self.dates if d.is_suggestion() ]
         for i, s in enumerate(suggestions):
-            print '\t%2s.' % (i+1), d.date.strftime(DATE_FORMAT)
+            print '\t%2s.' % (i+1), s.date.strftime(DATE_FORMAT)
 
 
 def _parse_date_array(config, name):
