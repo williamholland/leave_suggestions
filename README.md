@@ -4,7 +4,15 @@ A terminal based python tool for suggesting when to take days leave
 
 ## How to Use
 
-Simply run `main.py` with python 2.7
+This program is configured with `holidays.cfg`. To add holidays add a section
+with a name that starts with "Holiday", this section needs a `start_date` and
+an `end_date`. For example
+
+    [Holiday Christmas]
+    start_date: 23/12/2019
+    end_date: 27/12/2019
+
+To execute the program simply run `main.py` with python 2.7
 
     python2 main.py
 
@@ -46,6 +54,6 @@ Simply run `main.py` with python 2.7
 
 # To do list
 
-* have a file to configure start and end dates, leave allowance and booked holidays
+* choose cfg file with commandline arg
 * include english or scottish bank holidays with commandline flag
 * unit tests

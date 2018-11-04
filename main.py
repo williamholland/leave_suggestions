@@ -1,3 +1,4 @@
+import ConfigParser
 import datetime
 import copy
 
@@ -5,11 +6,6 @@ WEEKDAY = '.'
 WEEKEND = 'S'
 HOLIDAY = 'H'
 SUGGEST = 'h'
-
-
-ALLOWANCE = 25
-
-DATE_FORMAT = '%d/%m/%Y'
 
 
 class Day(object):
@@ -52,12 +48,13 @@ class DateArray(object):
     start_date = None
     end_date = None
     dates = []
-    remaining_days = ALLOWANCE
+    remaining_days = 0
 
     def __init__(self, start_date, end_date):
         self.start_date = start_date
         self.end_date = end_date
         self.dates = [ Day(start_date + datetime.timedelta(days=n)) for n in range((end_date - start_date).days + 1) ]
+        self.remaining_days = ALLOWANCE
 
     def __contains__(self, item):
         if not isinstance(item, Day):
@@ -144,16 +141,45 @@ class DateArray(object):
                 print '\t', d.date.strftime(DATE_FORMAT)
 
 
-if __name__ == '__main__':
-    start_date = datetime.datetime(2019, 1, 1)
-    end_date = datetime.datetime(2019, 12, 31)
+def _parse_date_array(config, name):
+    '''
+        config: RawConfigParser
+        name: section name to parse
+        returns: DateArray
+    '''
+    start_date = config.get(name, 'start_date')
+    end_date = config.get(name, 'end_date')
+    start_date = datetime.datetime.strptime(start_date, DATE_FORMAT)
+    end_date = datetime.datetime.strptime(end_date, DATE_FORMAT)
+    return DateArray(start_date, end_date)
 
-    all_dates = DateArray(start_date, end_date)
-    summer = DateArray(
-        datetime.datetime(2019, 6, 1),
-        datetime.datetime(2019, 6, 14),
-    )
-    all_dates.add_holiday(summer)
+
+def parse_config(filename):
+    '''
+        filename: str - a filename to read config from
+        returns: DateArray
+    '''
+    global DATE_FORMAT
+    global ALLOWANCE
+
+    config = ConfigParser.RawConfigParser()
+    config.read(filename)
+
+    DATE_FORMAT = config.get('Global', 'DATE_FORMAT')
+    ALLOWANCE = config.getint('Global', 'ALLOWANCE')
+
+    all_dates = _parse_date_array( config, 'DateArray' )
+
+    holidays = [ s for s in config.sections() if s.lower().startswith('holiday')]
+    for h in holidays:
+        holiday = _parse_date_array( config, h)
+        all_dates.add_holiday( holiday )
+
+    return all_dates
+
+
+if __name__ == '__main__':
+    all_dates = parse_config('holidays.cfg')
 
     all_dates.add_sugestions()
     all_dates.print_key()
