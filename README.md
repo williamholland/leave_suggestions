@@ -2,6 +2,18 @@
 
 A terminal based python tool for suggesting when to take days leave 
 
+## Problem
+
+I have a given number of days leave to take from work each year. I plan a
+couple of holidays each year where I take a few consecutive days off. After
+booking those holidays I still have some days leave to take, how can I use
+those days optimally?
+
+## Solution
+
+This algorithm works to minimize the largest consecutive extent of working days
+between breaks by suggesting when to take one-day breaks.
+
 ## How to Use
 
 This program is configured with `holidays.cfg`. To add holidays add a section
