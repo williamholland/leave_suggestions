@@ -97,6 +97,10 @@ class DateArray(object):
         '''add suggestions inplace by setting work days to suggestions at evan
         intervals throughout the year around holidays. Note that if it falls on
         a weekend it is moved to the following monday'''
+
+        if self.remaining_days <= 0:
+            return
+
         total_days = len( [d for d in self.dates if not d.is_holiday()] )
         distribution = float( total_days - self.remaining_days ) / self.remaining_days
         count = 0
