@@ -11,6 +11,7 @@ ALLOWANCE = 25
 
 
 class Day(object):
+    ''' represents a date and stores it's holiday status '''
 
     date = None
     _value = 0
@@ -20,15 +21,19 @@ class Day(object):
         self._value = WEEKDAY if date.weekday() < 5 else WEEKEND
 
     def set_holiday(self):
+        ''' set this day as a holiday '''
         self._value = HOLIDAY
 
     def set_suggestion(self):
+        ''' set this day as a suggested holiday '''
         self._value = SUGGEST
 
     def is_holiday(self, include_suggestions=False):
+        ''' is this day a holiday '''
         return self._value == HOLIDAY or (include_suggestions and self._value == SUGGEST)
 
     def is_workday(self):
+        ''' is this day a working day? (not holiday or weekend) '''
         return self._value == WEEKDAY
 
     def __str__(self):
@@ -36,6 +41,7 @@ class Day(object):
 
 
 class DateArray(object):
+    ''' a range of dates '''
 
     start_date = None
     end_date = None
@@ -53,12 +59,23 @@ class DateArray(object):
         return self.start_date <= item.date <= self.end_date
 
     def add_holiday(self, date_array):
+        ''' date_array: DateArray
+
+        add date_array as a holiday inside this DateArray but setting all days
+        in the intersection as holiday days
+        '''
         for date in self.dates:
             if date in date_array:
                 date.set_holiday()
                 self.remaining_days -= 1
 
     def max_days_between_holidays(self, include_suggestions=False):
+        ''' returns: int
+
+        the maximum number of days between holidays in this DateArray. Weekend
+        days are included so this number may be slightly misleading.
+        '''
+        #TODO weekends that touch holidays should be marked as holidays
         _dates = copy.copy(self.dates)
         blocks = list()
         block = list()
@@ -74,6 +91,9 @@ class DateArray(object):
         return max([len(b) for b in blocks])
 
     def add_sugestions(self):
+        '''add suggestions inplace by setting work days to suggestions at evan
+        intervals throughout the year around holidays. Note that if it falls on
+        a weekend it is moved to the following monday'''
         total_days = len( [d for d in self.dates if not d.is_holiday()] )
         distribution = float( total_days - self.remaining_days ) / self.remaining_days
         count = 0
@@ -87,6 +107,7 @@ class DateArray(object):
                 count = 0
 
     def print_key(self):
+        ''' print the key of the pretty_print '''
         print 'Key:'
         the_key = {
             WEEKDAY: 'working day',
@@ -98,6 +119,8 @@ class DateArray(object):
             print '\t{key} = {meaning}'.format(key=key, meaning=value)
 
     def pretty_print(self):
+        ''' print this DateArray with each new line being a month, aligning
+        weekends '''
         month = 0
         for date in self.dates:
             if date.date.month > month:
