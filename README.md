@@ -2,6 +2,12 @@
 
 A terminal based python tool for suggesting when to take days leave 
 
+## How to Use
+
+Simply run `main.py` with python 2.7
+
+    python2 main.py
+
 ## Sample output
 
     Key:
