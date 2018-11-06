@@ -36,21 +36,22 @@ To execute the program simply run `main.py` with python 2.7
         h = suggested holiday
         . = working day
 
-       . . . . S S . . . . . S S . . . . . S S . . . . . S S . . . . 
-             . S S h . . . . S S . . . . . S S . . . . . S S . . . . 
-             . S S . . . . h S S . . . . . S S . . . . . S S . . . . . S S 
-     . . . . . S S . . . h . S S . . . . . S S . . . . . S S . . 
-         . . . S S . . . . . S S . . h . . S S . . . . . S S . . . . . 
-               H H H H H H H H H H H H H H S S . . . . . S S . . . . . S S 
-     . h . . . S S . . . . . S S . . . . . S S . . . . . S S . . . 
-           . . S S h . . . . S S . . . . . S S . . . . . S S . . . . . S 
-                 S . . . . h S S . . . . . S S . . . . . S S . . . . . S S . 
-       . . . . S S . . . h . S S . . . . . S S . . . . . S S . . . . 
-             . S S . . . . . S S . . h . . S S . . . . . S S . . . . . S 
-                 S . . . . . S S . . . . . S S . h . . . S S H H H H H S S . . 
+         M T W T F S S M T W T F S S M T W T F S S M T W T F S S M T W T F S S  
+    Jan    . . . . S S . . . . . S S . . . . . S S . . . . . S S . . . . 
+    Feb          . S S h . . . . S S . . . . . S S . . . . . S S . . . . 
+    Mar          . S S . . . . h S S . . . . . S S . . . . . S S . . . . . S S 
+    Apr  . . . . . S S . . . h . S S . . . . . S S . . . . . S S . . 
+    May      . . . S S . . . . . S S . . h . . S S . . . . . S S . . . . . 
+    Jun            H H H H H H H H H H H H H H S S . . . . . S S . . . . . S S 
+    Jul  . h . . . S S . . . . . S S . . . . . S S . . . . . S S . . . 
+    Aug        . . S S h . . . . S S . . . . . S S . . . . . S S . . . . . S 
+    Sep              S . . . . h S S . . . . . S S . . . . . S S . . . . . S S . 
+    Oct    . . . . S S . . . h . S S . . . . . S S . . . . . S S . . . . 
+    Nov          . S S . . . . . S S . . h . . S S . . . . . S S . . . . . S 
+    Dec              S . . . . . S S . . . . . S S . h . . . S S H H H H H S S . . 
+
     max days between holidays ignoring suggestions: 191
     max days between holidays with suggestions: 34
-    days leave not used (with suggestions): 0
     suggested dates:
          1. 04/02/2019
          2. 08/03/2019
@@ -62,7 +63,6 @@ To execute the program simply run `main.py` with python 2.7
          8. 10/10/2019
          9. 13/11/2019
         10. 17/12/2019
-
 
 
 # To do list

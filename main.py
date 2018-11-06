@@ -139,14 +139,16 @@ class DateArray(object):
     def pretty_print(self):
         ''' print this DateArray with each new line being a month, aligning
         weekends '''
+        print ''
+        print ' ' * 4, 'M T W T F S S ' * 5,
         month = 0
         for date in self.dates:
             if date.date.month > month:
-                print ''
+                print '\n%s' % date.date.strftime('%b'),
                 print '  ' * (date.date.weekday()),
                 month = date.date.month
             print date,
-        print ''
+        print '\n'
         print 'max days between holidays ignoring suggestions:', self.max_days_between_holidays()
         print 'max days between holidays with suggestions:', self.max_days_between_holidays(include_suggestions=True)
         print 'suggested dates:'
