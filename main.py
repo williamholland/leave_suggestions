@@ -138,6 +138,9 @@ class DateArray(object):
         ''' distribute days evenly over working days. Ignores where holidays
         are but guarenteed to use all days '''
 
+        if self.remaining_days <= 0:
+            return
+
         all_working_days = [d for d in self.dates if d.is_workday()]
         num_working_days = len(all_working_days)
         # take floor
@@ -172,6 +175,12 @@ class DateArray(object):
                     partition = list()
             elif date.is_workday():
                 partition.append(date)
+        else:
+            if partition:
+                allowance = int(len(partition)/max_partition_size)
+                array = DateArray(dates=partition, allowance=allowance)
+                partitions.append(array)
+
 
         days_remainder = self.remaining_days - sum(d.remaining_days for d in partitions)
 
