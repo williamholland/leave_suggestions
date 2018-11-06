@@ -115,12 +115,18 @@ class DateArray(object):
                 count = 0
 
     def add_sugestions(self):
-        ''' distribute days evenly over working days '''
+        ''' distribute days evenly over working days. Ignores where holidays
+        are but guarenteed to use all days '''
 
         all_working_days = [d for d in self.dates if d.is_workday()]
+        num_working_days = len(all_working_days)
         # take floor
-        partition_size = int(len(all_working_days) / self.remaining_days)
-        for i in range(partition_size,len(all_working_days), partition_size):
+        partition_size = int(num_working_days / self.remaining_days)
+        remainder = num_working_days - (partition_size * self.remaining_days)
+        while remainder + self.remaining_days < partition_size:
+            partition_size -= 1
+            remainder = num_working_days - (partition_size * self.remaining_days)
+        for i in range(partition_size, num_working_days, partition_size):
             all_working_days[i].set_suggestion()
             self.remaining_days -= 1
 
