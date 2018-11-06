@@ -38,29 +38,32 @@ To execute the program simply run `main.py` with python 2.7
 
        . . . . S S . . . . . S S . . . . . S S . . . . . S S . . . . 
              . S S h . . . . S S . . . . . S S . . . . . S S . . . . 
-             . S S . . . . . S S h . . . . S S . . . . . S S . . . . . S S 
-     . . . . . S S . . . . . S S h . . . . S S . . . . . S S . . 
-         . . . S S . . . . . S S . . . . . S S h . . . . S S . . . . . 
+             . S S . . . . h S S . . . . . S S . . . . . S S . . . . . S S 
+     . . . . . S S . . . h . S S . . . . . S S . . . . . S S . . 
+         . . . S S . . . . . S S . . h . . S S . . . . . S S . . . . . 
                H H H H H H H H H H H H H H S S . . . . . S S . . . . . S S 
-     . . . . . S S . . . . . S S . . . h . S S . . . . . S S . . . 
-           . . S S . . . . . S S . . . . . S S . . h . . S S . . . . . S 
-                 S . . . . . S S . . . . . S S . . . . . S S . h . . . S S . 
-       . . . . S S . . . . . S S . . . . . S S . . . . . S S h . . . 
-             . S S . . . . . S S . . . . . S S . . . . . S S . . . . . S 
-                 S h . . . . S S . . . . . S S . . . . . S S H H H H H S S . . 
+     . h . . . S S . . . . . S S . . . . . S S . . . . . S S . . . 
+           . . S S h . . . . S S . . . . . S S . . . . . S S . . . . . S 
+                 S . . . . h S S . . . . . S S . . . . . S S . . . . . S S . 
+       . . . . S S . . . h . S S . . . . . S S . . . . . S S . . . . 
+             . S S . . . . . S S . . h . . S S . . . . . S S . . . . . S 
+                 S . . . . . S S . . . . . S S . h . . . S S H H H H H S S . . 
     max days between holidays ignoring suggestions: 191
     max days between holidays with suggestions: 34
-    days leave not used (with suggestions): 1
+    days leave not used (with suggestions): 0
     suggested dates:
          1. 04/02/2019
-         2. 11/03/2019
-         3. 15/04/2019
-         4. 20/05/2019
-         5. 18/07/2019
-         6. 21/08/2019
-         7. 24/09/2019
-         8. 28/10/2019
-         9. 02/12/2019
+         2. 08/03/2019
+         3. 11/04/2019
+         4. 15/05/2019
+         5. 02/07/2019
+         6. 05/08/2019
+         7. 06/09/2019
+         8. 10/10/2019
+         9. 13/11/2019
+        10. 17/12/2019
+
+
 
 # To do list
 

@@ -94,7 +94,7 @@ class DateArray(object):
             blocks.append(block)
         return max([len(b) for b in blocks])
 
-    def add_sugestions(self):
+    def add_sugestions_naive(self):
         '''add suggestions inplace by setting work days to suggestions at evan
         intervals throughout the year around holidays. Note that if it falls on
         a weekend it is moved to the following monday'''
@@ -113,6 +113,16 @@ class DateArray(object):
                 date.set_suggestion()
                 self.remaining_days -= 1
                 count = 0
+
+    def add_sugestions(self):
+        ''' distribute days evenly over working days '''
+
+        all_working_days = [d for d in self.dates if d.is_workday()]
+        # take floor
+        partition_size = int(len(all_working_days) / self.remaining_days)
+        for i in range(partition_size,len(all_working_days), partition_size):
+            all_working_days[i].set_suggestion()
+            self.remaining_days -= 1
 
     def print_key(self):
         ''' print the key of the pretty_print '''
@@ -139,7 +149,6 @@ class DateArray(object):
         print ''
         print 'max days between holidays ignoring suggestions:', self.max_days_between_holidays()
         print 'max days between holidays with suggestions:', self.max_days_between_holidays(include_suggestions=True)
-        print 'days leave not used (with suggestions):', self.remaining_days
         print 'suggested dates:'
         suggestions = [ d for d in self.dates if d.is_suggestion() ]
         for i, s in enumerate(suggestions):
